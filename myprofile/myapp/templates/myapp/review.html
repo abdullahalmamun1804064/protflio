@@ -1,0 +1,44 @@
+{% extends 'myapp/base.html' %}
+{% load static %}
+{% block review %}
+<div class="testimonial wow fadeInUp mt-0 " data-wow-delay="0.1s" id="review">
+    <div class="container ">
+        <div class="testimonial-icon mt-5">
+            <i class="fa fa-quote-left"></i>
+        </div>
+        <div class="owl-carousel testimonials-carousel">
+
+             
+            {% for rv in review %}
+
+                <div class="testimonial-item">
+                    <div class="testimonial-img">
+                        <img src="{{rv.image.url}}" alt="Image">
+                    </div>
+                    <div class="testimonial-text">
+                        <p>
+                            {{rv.discription}}
+                          </p>
+                        <h3>{{rv.name}}</h3>
+                        <h4>{{rv.profession}}</h4>
+
+                        {% if rv.catagory == 'fiverr' %}  
+                         <a href="#"> <p><img src="{% static 'myapp/img/fiverr.png' %}" alt="" width="100px" height="80px"></p></a>
+
+                        {% endif %}
+                        
+                        {% if rv.catagory == 'freeencer' %}  
+                         <a href=""><p><img src="{% static 'myapp/img/freencer.jpg' %}" alt="" width="100px" height="80px"></p></a> 
+
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+
+
+
+        </div>
+    </div>
+</div>
+         
+{% endblock review %}

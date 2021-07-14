@@ -1,0 +1,49 @@
+{% extends 'myapp/base.html' %}
+{% load static %}
+{% block experience %}
+<div class="experience" id="experience">
+    <div class="container">
+        <header class="section-header text-center wow zoomIn mt-5" data-wow-delay="0.1s">
+           <br><br>
+            <p>My Resume</p>
+            <h2>Working Experience</h2>
+        </header>
+        <div class="timeline">
+
+         {% for job in jobs %}
+
+         {% if forloop.counter|divisibleby:2  %}
+         
+         <div class="timeline-item right wow slideInRight" data-wow-delay="0.1s">
+            <div class="timeline-text">
+                <div class="timeline-date">{{job.start_time}} - {{job.end_time}}</div>
+                <h2>{{job.work_field}}</h2>
+                <h4>{{job.company_name}}</h4>
+                <p>
+                    {{job.dtails}}
+                </p>
+            </div>
+        </div>
+            
+          {% else %}
+
+            <div class="timeline-item left wow slideInLeft" data-wow-delay="0.1s">
+                <div class="timeline-text">
+                    <div class="timeline-date">{{job.start_time}} - {{job.end_time}}</div>
+                    <h2>{{job.work_field}}</h2>
+                    <h4>{{job.company_name}}</h4>
+                    <p>
+                        {{job.dtails}}
+                    </p>
+                </div>
+            </div>
+            {% endif %}
+
+            {% endfor %}
+
+
+        </div>
+    </div>
+</div>
+
+{% endblock experience %}

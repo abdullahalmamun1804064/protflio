@@ -1,0 +1,77 @@
+{% extends 'myapp/base.html' %}
+{% load static %}
+{% block blog %}
+<div class="blog" id="blog">
+    <div class="container">
+        <div class="section-header text-center wow zoomIn mt-5" data-wow-delay="0.1s">
+            <br><br>
+            <p>From Blog</p>
+            <h2>Latest Articles</h2>
+        </div>
+        <div class="row">
+
+        {% for post in  post_page  %}  
+  
+        
+
+            <div class="col-lg-6">
+                <div class="blog-item wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="blog-img">
+                        <img src="{{post.image.url}}" alt="Blog" height="400px" width="100%">
+                    </div>
+                    <div class="blog-text">
+                        <h2>{{post.title}}</h2>
+                        <div class="blog-meta">
+                            <p><i class="far fa-user"></i>{{post.user}}</p>
+                            <p><i class="far fa-list-alt"></i>{{post.type}}</p>
+                            <p><i class="far fa-calendar-alt"></i>{{post.created}}</p>
+                        </div>
+                        <p>
+                           {{post.discription|truncatewords:10}}
+                        </p>
+                        <form action="{% url 'dtail_post' %}" method="POST">
+                            {% csrf_token %}
+                            <input type="hidden" name="post_id" id="" value="{{post.id}}">
+                            <button class="btn" >
+                                Read More<i class="fa fa-angle-right"></i>
+                            </button>
+                         </form>
+                        
+                    </div>
+                </div>
+            </div> 
+        {% endfor %}
+     </div>
+
+        <div>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+                
+                    {% if post_page.has_previous %}
+                        <li class="page-item"><a class="page-link" href="?page=1">&laquo First</a> </li>
+                        
+                        <li class="page-item"> <a class="page-link" href="?page={{ post_page.previous_page_number }}"> Previous</a></li>
+                    {% endif %}
+                    
+                    
+                    {% for x in pg_nums %}
+                    
+                    <li class="page-item"></li><a class="page-link" href="?page={{ forloop.counter }}">{{forloop.counter}}</a></li>
+                    {% endfor %}
+                    
+                    {% if post_page.has_next %}
+                    
+                    <li class="page-item"></li><a class="page-link" href="?page={{ post_page.next_page_number }}">Next</a></li>
+                    <li class="page-item"></li><a class="page-link" href="?page={{post_page.paginator.num_pages}}"> Last &laquo </a></li>
+                    
+                    {% endif %}
+                
+                </ul>
+            </nav>
+        </div>        
+
+    </div>
+</div>
+
+{% endblock blog %}
+

@@ -1,0 +1,80 @@
+{% extends 'myapp/base.html' %}
+{% load static %}
+{% block portfolio %}
+<div class="portfolio" id="portfolio">
+    <div class="container">
+
+        <div class="row mt-5">
+  
+            <div class="d-block col-12">
+                {% if pd.img1 %}
+                    <span class="text-center " ><img src="{{ pd.img1.url }}" alt="" class="py-4" height="100%" width="100%"></span>
+                {% endif %}
+            </div>
+
+            <div class="d-block col-12 ">
+                {% if pd.img2 %}
+                    <span class="text-center mt-5" ><img src="{{ pd.img2.url }}" alt="" class="py-4" height="100%" width="100%"></span>
+                {% endif %}
+             </div>
+
+             <div class="d-block col-12 ">
+                 
+                {% if pd.img3 %}
+                    <span class="text-center  mt-5" ><img src="{{ pd.img3.url }}" alt="" class="py-4" height="100%" width="100%"></span>
+                {% endif %}
+             </div>
+             
+        <div class="d-block col-12 ">
+           {% if pd.img4 %}
+             <span class="text-center mt-5" ><img src="{{ pd.img4.url }}" alt="" class="py-4" height="100%" width="100%"></span>
+           {% endif %}
+        </div>
+             
+        <div class="d-block col-12 ">
+           {% if pd.img5 %}
+             <span class="text-center  mt-5" ><img src="{{ pd.img5.url }}" alt="" class="py-4" height="100%" width="100%"></span>
+           {% endif %}
+        </div>
+             
+        <div class="d-block col-12 ">
+           {% if pd.img6 %}
+             <span class="text-center mt-5" ><img src="{{ pd.img6.url }}" alt="" class="py-4" height="100%" width="100%"></span>
+           {% endif %}
+        </div>
+            
+        <div class="d-block col-12 ">
+           {% if pd.img7 %}
+             <span class="text-center mt-5" ><img src="{{ pd.img7.url }}" alt="" class="py-4" height="100%" width="100%"></span>
+           {% endif %}
+        </div>
+             
+        <div class="d-block col-12 ">
+           {% if pd.img8 %}
+             <span class="text-center mt-5" ><img src="{{ pd.img8.url }}" alt="" class="py-4" height="100%" width="100%"></span>
+           {% endif %}
+        </div>
+             
+        <div class="d-block col-12 ">
+           {% if pd.img9 %}
+             <span class="text-center mt-5" ><img src="{{ pd.img9.url }}" alt="" class="py-4" height="100%" width="100%"></span>
+           {% endif %}
+        </div>
+           
+             
+        <div class="d-block col-12 ">
+           {% if pd.img10 %}
+             <span class="text-center mt-5" ><img src="{{ pd.img10.url }}" alt="" class="py-4" height="100%" width="100%"></span>
+           {% endif %}
+        </div>
+
+        <div class="d-inline col-12 ">
+           <a href="{% url 'portfolio' %}" class="btn btn-danger">Back</a>
+         </div>
+           
+
+        </div>
+    </div>
+</div>
+
+{% endblock portfolio %}
