@@ -1592,3 +1592,7 @@ a:focus {
         padding: 0 5px;
     }
 }
+.pimage{
+    width: 400%;
+    height: 400px !important;
+}
